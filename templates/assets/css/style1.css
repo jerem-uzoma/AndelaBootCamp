@@ -6,6 +6,21 @@ body {
     line-height: 30px;
 }
 
+html {
+    background: url(assets/img/m.jpg) center center no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.text-muted .container .row .card {
+    padding: 1rem;
+    float: left;
+    width: 33.33%;
+    height: 33.33%;
+    overflow: scroll;
+    border-radius: 0px;
+}
+
 strong {
     font-weight: 500;
 }
@@ -127,6 +142,25 @@ a:focus {
     margin-top: 170px;
     border-right: 1px solid #fff;
     border-right: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.jumbotron {
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    padding-bottom: 6rem;
+    padding-top: 6rem;
+    background-image: url(3.jpg)
+}
+
+.jumbotron-heading {
+    font-weight: bold;
+    color: #fff
+}
+
+.login-body {
+    background-color: #0e5d88
 }
 
 
@@ -265,6 +299,10 @@ textarea#EditPost.form-control {
     .hidden-sm {
         display: none !important;
     }
+    .text-muted .container .row .card {
+        width: auto;
+        overflow-wrap: scroll
+    }
 }
 
 @media (min-width: 768px) {
@@ -282,6 +320,9 @@ textarea#EditPost.form-control {
 @media (min-width: 768px) {
     .col-sm-offset-2 {
         margin-left: 16.66666667%;
+    }
+    .text-muted .container .row .card {
+        max-height: 386px;
     }
 }
 
@@ -388,6 +429,7 @@ button.btn.btn-primary.write-review {
 footer {
     padding-bottom: 70px;
     color: #fff;
+    background-color: #0e5d88;
 }
 
 footer .footer-border {
