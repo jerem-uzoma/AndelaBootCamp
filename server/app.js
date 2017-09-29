@@ -1,8 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-
-
+//routes
 app.use(bodyParser.json());
 
 app.use(require('./controllers'));
