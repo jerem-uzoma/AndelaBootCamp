@@ -10,32 +10,37 @@ global.review = [{
     recipeId: 1,
     content: "Nice"
 }]
-router.get('/api/recipe', function(req, res) {
-    return res.json({
+router.get('/', (req, res) => {
+    return res.status(200).json({
+        "message": "my nice API"
+    });
+});
+router.get('/recipe', (req, res) => {
+    return res.status(200).json({
         'recipe': global.recipe,
         error: false
     });
 });
-router.post('/api/recipe', function(req, res) {
+router.post('/recipe', (req, res) => {
     if (!req.body.name) {
-        return res.json({
+        return res.status(404).json({
             message: "No recipe name",
             error: true
         });
     }
     global.recipe.push(req.body);
-    return res.json({
+    return res.status(201).json({
         message: "success",
         error: false
     })
 });
 
-router.put('/api/recipe/:recipeId', function(req, res) {
+router.put('/recipe/:recipeId', (req, res) => {
     for (let i = 0; i < global.recipe.length; i++) {
         if (global.recipe[i].id === parseInt(req.params.recipeId, 10)) {
             global.recipe[i].name = req.body.name;
             global.user_id[i].upvote = req.body.upvote;
-            return res.json({
+            return res.status(200).json({
                 message: "Success",
                 error: false
             });
@@ -47,10 +52,10 @@ router.put('/api/recipe/:recipeId', function(req, res) {
     });
 });
 
-router.get('/api/recipe/:recipeId', function(req, res) {
+router.get('/recipe/:recipeId', (req, res) => {
     for (let i = 0; i < global.recipe.length; i++) {
         if (global.recipe[i].id === parseInt(req.params.recipeId, 10)) {
-            return res.json({
+            return res.status(200).json({
                 recipe: global.recipe[i],
                 message: "Success",
                 error: false
@@ -62,11 +67,11 @@ router.get('/api/recipe/:recipeId', function(req, res) {
         error: true
     });
 })
-router.delete('/api/recipe/:recipeId', function(req, res) {
+router.delete('/recipe/:recipeId', (req, res) => {
     for (let i = 0; i < global.recipe.length; i++) {
         if (global.recipe[i].id === parseInt(req.params.recipeId, 10)) {
             global.recipe.splice(i, 1);
-            return res.json({
+            return res.status(204).json({
                 message: "Success",
                 error: false
             });
@@ -79,12 +84,13 @@ router.delete('/api/recipe/:recipeId', function(req, res) {
 
 });
 
-router.post('/api/recipe/:recipeId/review', function(req, res) {
+router.post('/recipe/:recipesId/review', (req, res) => {
     for (let i = 0; i < global.recipe.length; i++) {
-        if (global.recipe[i].id === parseInt(req.params.recipeId, 10)) {
+        if (global.recipe[i].id === parseInt(req.params.recipesId, 10)) {
             global.review[i].recipeId = req.body.recipeId;
             global.review[i].content = req.body.content;
-            return res.json({
+            global.recipe[i].reviewid.push(review[i].id)
+            return res.status(200).json({
                 message: "Success",
                 error: false
             });
@@ -96,4 +102,7 @@ router.post('/api/recipe/:recipeId/review', function(req, res) {
     });
 });
 
+
+
+console.log("we have the server working")
 module.exports = router;
