@@ -5,3 +5,4 @@ ntask.sqlite
 .vscode
 node_modules
 .README.md
+.gitignore
