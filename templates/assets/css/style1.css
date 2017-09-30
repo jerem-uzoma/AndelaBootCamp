@@ -14,11 +14,11 @@ html {
 
 .text-muted .container .row .card {
     padding: 1rem;
-    float: left;
+    /***    float: left;
     width: 33.33%;
     height: 33.33%;
     overflow: scroll;
-    border-radius: 0px;
+    border-radius: 0px;***/
 }
 
 strong {
@@ -152,6 +152,10 @@ a:focus {
     padding-bottom: 6rem;
     padding-top: 6rem;
     background-image: url(3.jpg)
+}
+
+.product-wrapper {
+    padding: 8px
 }
 
 .jumbotron-heading {
