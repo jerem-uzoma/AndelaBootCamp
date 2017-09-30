@@ -4,3 +4,4 @@ ntask.sqlite
 .settings
 .vscode
 node_modules
+.README.md

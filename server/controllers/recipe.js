@@ -87,8 +87,7 @@ router.delete('/recipe/:recipeId', (req, res) => {
 router.post('/recipe/:recipesId/review', (req, res) => {
     for (let i = 0; i < global.recipe.length; i++) {
         if (global.recipe[i].id === parseInt(req.params.recipesId, 10)) {
-            global.review[i].recipeId = req.body.recipeId;
-            global.review[i].content = req.body.content;
+            global.review.push(req.body)
             global.recipe[i].reviewid.push(review[i].id)
             return res.status(200).json({
                 message: "Success",
